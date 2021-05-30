@@ -41,5 +41,5 @@ jobs:
     - name: Test with pytest
       run: |
         echo ${PWD}
-        cd graph_ql_example && poetry update && poetry install
+        cd graph_ql_example && poetry shell
         pytest  --doctest-modules -s -v --ff
