@@ -16,7 +16,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  tests:
 
     runs-on: ubuntu-latest
 
@@ -40,5 +40,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        pwd
         cd graph_ql_example
-        pytest
+        pytest  --doctest-modules -s -v --ff
