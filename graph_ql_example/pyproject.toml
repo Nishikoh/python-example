@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "graph_ql_example"
+version = "0.1.0"
+description = ""
+authors = ["Koki Nishihara"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = "^0.65.1"
+uvicorn = "^0.13.4"
+requests = "^2.25.1"
+pydantic = "^1.8.2"
+graphene = "^2.1.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
