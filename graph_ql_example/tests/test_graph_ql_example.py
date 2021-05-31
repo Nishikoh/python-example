@@ -18,7 +18,7 @@ def test_hello():
     assert response.json() == {"Hello": "World"}
 
 
-def test_hello():
+def test_query():
     response = client.get("/query")
     assert response.status_code == 200
     assert response.json() == {"text": "hello world, None!"}
@@ -32,7 +32,11 @@ def test_hello():
     assert response.json() == {"text": "hello world, hoge!"}
 
 
-def test_hey():
+def test_graphql():
     client = Client(graphene.Schema(query=Query))
-    executed = client.execute("""{ hey }""")
-    assert executed == {"data": {"hey": "hello!"}}
+    executed = client.execute(
+        """query{
+            hello(name: "Fast API")
+           }"""
+    )
+    assert executed == {"data": {"hello": "Hello Fast API"}}
