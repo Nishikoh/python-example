@@ -37,14 +37,14 @@ jobs:
         with:
           path: |
             ~/.cache/pypoetry
-            .venv
+            graph_ql_example/.venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: |
           cd graph_ql_example
           python -m pip install --upgrade pip
-          python -m venv venv
+          # python -m venv venv
           source .venv/bin/activate
           poetry install
       # - name: Install dependencies
