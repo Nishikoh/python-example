@@ -21,7 +21,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: pytest
-        run: docker run -v $(pwd)/:/app/ hoge pytest
+        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ hoge pytest
 
   pytest:
     runs-on: ubuntu-latest
