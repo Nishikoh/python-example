@@ -38,7 +38,7 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
-        run: poetry install
+        run: cd graph_ql_example && poetry install
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       # - name: Install dependencies
       #   run: |
