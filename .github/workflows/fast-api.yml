@@ -44,4 +44,4 @@ jobs:
           pytest  --doctest-modules -s -v --ff
 
   reuse:
-    uses: Nishikoh/python-exampole/.github/workflows/reuse_workflow.yaml@resue-workflow
+    uses: Nishikoh/python-example/.github/workflows/resuse_workflow.yaml@resue-workflow
