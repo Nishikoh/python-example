@@ -22,8 +22,10 @@ jobs:
 
   pytest:
     runs-on: ubuntu-latest
+
     needs: build
     steps:
+      - uses: actions/checkout@v3
       - name: ls
         run: ls
       # - name: docker build
