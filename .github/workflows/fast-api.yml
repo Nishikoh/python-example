@@ -14,6 +14,7 @@ on:
       - ".github/workflows/fast-api.yml"
       - "./graph_ql_example/**"
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   tests:

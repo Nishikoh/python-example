@@ -20,11 +20,11 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  black:
+  pytest:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: docker build
-        run: docker build .
-      - name: black
-        run: docker run -it -v $(pwd)/:/app/ hoge pytest
+      # - name: docker build
+      #   run: docker build .
+      - name: pytest
+        run: cd graph_ql_example && docker run -it -v $(pwd)/:/app/ hoge pytest
