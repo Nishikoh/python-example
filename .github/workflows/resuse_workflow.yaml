@@ -16,10 +16,12 @@ jobs:
           file: graph_ql_example/Dockerfile
           context: graph_ql_example/
           tags: hoge
-          push: true
+          load: true
           target: development
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: pytest
+        run: docker run -v $(pwd)/:/app/ hoge pytest
 
   pytest:
     runs-on: ubuntu-latest
