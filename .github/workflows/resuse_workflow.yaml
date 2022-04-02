@@ -17,6 +17,7 @@ jobs:
           context: graph_ql_example/
           tags: hoge
           load: true
+          push: true
           target: development
           cache-from: type=gha
           cache-to: type=gha,mode=max
