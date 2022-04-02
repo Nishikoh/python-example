@@ -16,6 +16,7 @@ jobs:
           file: graph_ql_example/Dockerfile
           context: graph_ql_example/
           tags: hoge
+          load: true
           target: development
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -29,6 +30,6 @@ jobs:
       - name: ls
         run: ls
       - name: docker build
-        run: docker build . -t hoge
+        run: cd graph_ql_example && docker build . -t hoge
       - name: pytest
-        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ hoge pytest
+        run: docker run -v $(pwd)/:/app/ hoge pytest
