@@ -35,7 +35,9 @@ jobs:
         id: cached-poetry-dependencies
         uses: actions/cache@v2
         with:
-          path: .venv
+          path: |
+            ~/.cache/pypoetry
+            .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
@@ -43,7 +45,7 @@ jobs:
           cd graph_ql_example
           python -m pip install --upgrade pip
           python -m venv venv
-          source venv/bin/activate
+          source .venv/bin/activate
           poetry install
       # - name: Install dependencies
       #   run: |
