@@ -2,8 +2,24 @@ name: reuse-test
 
 on:
   workflow_call:
+    inputs:
+    versions:
+      description: "Stringified JSON object listing target Node versions"
+      default: "world"
+      required: false
+      type: string
 
 jobs:
+  hi:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ${{fromJson(inputs.versions)}}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        run: echo "${{ matrix.node-version }}"
+
   build:
     runs-on: ubuntu-latest
     steps:
