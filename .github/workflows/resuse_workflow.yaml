@@ -3,11 +3,11 @@ name: reuse-test
 on:
   workflow_call:
     inputs:
-    versions:
-      description: "Stringified JSON object listing target Node versions"
-      default: "world"
-      required: false
-      type: string
+      versions:
+        description: "Stringified JSON object listing target Node versions"
+        default: "world"
+        required: false
+        type: string
 
 jobs:
   hi:
