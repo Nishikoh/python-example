@@ -32,8 +32,6 @@ jobs:
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
-      - name: bandit
-        run: cd graph_ql_example && poetry add -D bandit --lock
       - uses: docker/build-push-action@v2
         with:
           file: graph_ql_example/Dockerfile
@@ -44,7 +42,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: pytest
-        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ echo 1 
+        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ hoge echo 1 
 
   pytest:
     runs-on: ubuntu-latest
