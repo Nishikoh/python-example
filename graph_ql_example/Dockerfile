@@ -58,12 +58,11 @@ WORKDIR $PYSETUP_PATH
 COPY --from=builder-base $POETRY_HOME $POETRY_HOME
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 
-# quicker install as runtime deps are already installed
-RUN poetry install
-
 # will become mountpoint of our code
 WORKDIR /app
 COPY poetry.lock pyproject.toml ./
+# quicker install as runtime deps are already installed
+RUN poetry install
 EXPOSE 8000
 CMD ["uvicorn", "graph_ql_example.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
 
