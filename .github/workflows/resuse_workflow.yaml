@@ -33,10 +33,11 @@ jobs:
           context: graph_ql_example/
           tags: hoge
           target: development
+          push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: pytest
-        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ hoge echo 1 
+        run: cd graph_ql_example && docker run -v $(pwd)/:/app/ hoge echo 1
 
   pytest:
     runs-on: ubuntu-latest
